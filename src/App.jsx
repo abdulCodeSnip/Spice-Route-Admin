@@ -5,6 +5,7 @@ import Dashboard from './routes/Dashboard'
 import SideBar from './resusableComponents/SideBar'
 import Recipes from './routes/Recipes'
 import Restaurants from './routes/Restaurants'
+import AddNewRecipe from './components/recipes/add recipe/AddNewRecipe'
 
 function App() {
   return (
@@ -37,6 +38,13 @@ function App() {
           element={
             <Restaurants />
           } />
+
+        {/* Route for Adding new Recipe to the server */}
+        <Route path={"/add-new-recipe"}
+          element={
+            <AddNewRecipe />
+          }
+        />
       </Routes>
     </>
   )

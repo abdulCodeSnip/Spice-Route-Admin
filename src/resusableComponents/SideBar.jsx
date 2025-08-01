@@ -65,7 +65,9 @@ const SideBar = () => {
                     {/* Custom Links with custom Styling */}
                     {
                         links.map((custom) => (
-                            <Link to={custom.path} className={`flex items-center text-sm font-medium px-3 py-2 ${custom?.path === pathname ? "bg-gray-700 text-white border-l-4 border-l-blue-500 rounded-l-none" : "bg-gray-800 text-gray-400"} rounded-lg gap-x-2`}>
+                            <Link to={custom.path} className={`flex items-center text-sm font-medium px-4 py-3 
+                            ${custom?.path === pathname ? "bg-gray-700 text-white border-l-5 border-l-blue-500 rounded-l-none"
+                                    : "bg-gray-800 text-gray-400"} rounded-lg gap-x-2`}>
                                 <div className='h-6 w-6 items-center justify-center flex'>
                                     {custom?.icon}
                                 </div>
