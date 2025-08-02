@@ -1,12 +1,13 @@
 import React from 'react'
 import { AiOutlineUser } from 'react-icons/ai'
+import { BsMenuAppFill } from 'react-icons/bs'
 import { CgProfile } from 'react-icons/cg'
 import { CiPlane } from 'react-icons/ci'
 import { FaHistory } from 'react-icons/fa'
 import { GiFoodChain, GiHotMeal } from 'react-icons/gi'
 import { IoFastFoodOutline, IoNewspaperOutline, IoSettingsOutline } from 'react-icons/io5'
 import { LuUsersRound } from 'react-icons/lu'
-import { MdDashboard, MdOutlineDashboard } from 'react-icons/md'
+import { MdDashboard, MdOutlineDashboard, MdOutlineMenuBook } from 'react-icons/md'
 import { RiContactsBookLine, RiMessage2Line, RiRestaurantLine } from 'react-icons/ri'
 import { TbLayoutDashboard } from 'react-icons/tb'
 import { Link, useLocation } from 'react-router-dom'
@@ -50,6 +51,11 @@ const SideBar = () => {
             path: "/profile",
             text: "Profile",
             icon: <CgProfile size={18} />,
+        }, {
+            id: 6,
+            path: "/menu",
+            text: "Menus",
+            icon: <MdOutlineMenuBook size={18} />,
         }
     ]
     return (
@@ -64,10 +70,10 @@ const SideBar = () => {
 
                     {/* Custom Links with custom Styling */}
                     {
-                        links.map((custom) => (
-                            <Link to={custom.path} className={`flex items-center text-sm font-medium px-4 py-3 
+                        links.map((custom, index) => (
+                            <Link to={custom.path} key={index} className={`flex items-center text-sm font-medium px-4 py-3 
                             ${custom?.path === pathname ? "bg-gray-700 text-white border-l-5 border-l-blue-500 rounded-l-none"
-                                    : "bg-gray-800 text-gray-400"} rounded-lg gap-x-2`}>
+                                    : "bg-gray-800 text-gray-400"} rounded-lg gap-x-2 hover:bg-gray-800 hover:text-white transition-all`}>
                                 <div className='h-6 w-6 items-center justify-center flex'>
                                     {custom?.icon}
                                 </div>

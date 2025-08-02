@@ -8,7 +8,7 @@ const Header = () => {
 
     const [searchInput, setSearchInput] = useState("");
     return (
-        <header className='bg-white shadow-xl z-10'>
+        <header className='bg-white shadow-md z-10'>
             <div className="flex flex-row items-center justify-between h-16 px-6">
 
                 {/* Input search bar at the top of the main content */}

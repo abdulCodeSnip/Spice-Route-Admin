@@ -6,7 +6,6 @@ import FormTextArea from './FormTextArea';
 
 const AddNewRecipe = () => {
 
-    const formData = new FormData();
     const [addRecipeInformation, setAddRecipeInformation] = useState({
         recipeName: "", recipeDesc: "", recipeDifficulty: "", recipeCookingTime: "", recipePreparationTime: "",
         recipeCompleteInformation: "", recipeIngredients: "", recipeIngredientNames: "", recipeMealType: "",
@@ -35,6 +34,7 @@ const AddNewRecipe = () => {
         recipeImageReference.current?.click();
     }
 
+    // Upload Recipe to the server
     const uploadRecipeToServer = async () => {
         const formData = new FormData();
 
@@ -52,13 +52,13 @@ const AddNewRecipe = () => {
         formData.append("recipeImage", addRecipeInformation.recipeImage); // Important: file
 
         try {
-            const res = await fetch("http://localhost:4000/recipes/add", {
+            const apiResponse = await fetch("http://localhost:4000/recipes/add", {
                 method: "POST",
                 body: formData,
             });
 
-            const data = await res.json();
-            if (res.ok) {
+            const data = await apiResponse.json();
+            if (apiResponse.ok) {
                 alert("Recipe uploaded successfully!");
             } else {
                 alert("Upload failed: " + data.message);
